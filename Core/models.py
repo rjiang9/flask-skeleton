@@ -1,7 +1,7 @@
-from Todolist import db
+from Core import db
 from datetime import datetime
 
-class Todo(db.Model):
+class Spec(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(140))
     date = db.Column(db.Date())
@@ -10,5 +10,5 @@ class Todo(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
 
     def __repr__(self):
-        return '<ToDo {}>'.format(self.title)
+        return '<Spec {}>'.format(self.title)
 

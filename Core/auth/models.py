@@ -2,7 +2,7 @@ from .. import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from .. import login
 from flask_login import UserMixin
-from ..models import Todo
+from ..models import Spec
 
 class User(UserMixin, db.Model):
     __tablename__ = 'user'
@@ -10,7 +10,7 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(64), index=True, unique=True)
     email = db.Column(db.String(120), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    todo = db.relationship('Todo', backref='author', lazy='dynamic')
+    spec = db.relationship('Spec', backref='author', lazy='dynamic')
 
     def __repr__(self):
         return '<User {}>'.format(self.username)

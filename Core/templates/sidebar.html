@@ -6,7 +6,7 @@
   
   <ul>
     <li><a class=" {% if request.url_rule.endpoint == 'home.homepage' %} active {% endif %}" href="{{url_for('home.homepage')}}"><i class="fa fa-home"></i>Home</a></li>
-    <li><a class=" {% if request.url_rule.endpoint == 'task.tasks' %} active {% endif %}" href="{{url_for('task.tasks')}}"><i class="fa fa-tasks"></i>Task Management</a></li>
+    <li><a class=" {% if request.url_rule.endpoint == 'task.tasks' %} active {% endif %}" href="{{url_for('task.tasks')}}"><i class="fa fa-tasks"></i>Spec Management</a></li>
     <li><a href="{{url_for('auth.logout')}}"><i class="fa fa-sign-out"></i>Logout</a></li>
   </ul> 
   <div class="social_media">

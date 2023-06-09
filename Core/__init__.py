@@ -22,4 +22,9 @@ app.register_blueprint(home_blueprint)
 from .task import task as task_blueprint
 app.register_blueprint(task_blueprint)
 
-from Todolist import routes
+#from .task import task as task_blueprint
+#app.register_blueprint(task_blueprint)
+
+# from Todolist import routes
+
+from Core import routes
