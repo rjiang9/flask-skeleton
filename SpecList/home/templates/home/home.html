@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="main_content">
+        <div class="welcome">
+                <button id="openbutton" class="openbtn" >&#9776;</button>
+                 <span class="welcome-text"> Welcome <span class="user">{{current_user.username }}</span> <span class="exclamation-mark">!</span> <i class="fa fa-smile-o" aria-hidden="true"></i></span> 
+                {% if no_of_other_tasks > 0 or no_of_business_tasks > 0 or no_of_personal_tasks > 0 %}
+                    <div  class="taskAdd">
+                            <a href="{{url_for('task.tasks')}}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>  <span class="Add">Add</span> <span class="or">or</span> <i class="fa fa-trash-o icon"></i> <span class="Delete">Delete Task(s)</span> </a>
+                    </div> <!--end taskAdd -->     
+                {% endif %} 
+        </div>
+        <div class="task-card">
+            <p class="heading">My Specs List</p> 
+          <div class="tabs effect-1">
+            <!-- tab-content -->
+			<div class="tab-content">
+
+				<section id="tab-item-1">
+                    <ul class="taskList">        
+                        {% for spec in spec %} 
+                                <li class="currentTaskItem">
+                                    <i class="fa fa-tasks" aria-hidden="true"></i>
+                                    <span  id=TaskDone class="complete- taskDone">{{ spec.title }}</span>
+                                    <span class="taskDone" >at</span>
+                                    <strong class="taskDone"><i class="fa fa-clock-o"></i> {{ spec.time }}</strong>
+                                    <span class="taskDone" >on</span>
+                                    <strong class=" taskDatee taskDone"><i class="fa fa-calendar"></i> {{ spec.date }}</strong>
+                                    <span class="categoryy-{{ spec.category }}">{{ spec.category }}</span>
+                                </li>
+                        {% endfor %}
+                    </ul> <!--end All-Tasks-List -->
+				</section>
+
+                {% if no_of_other_tasks == 0 and no_of_business_tasks == 0 and no_of_personal_tasks == 0 %}
+                <div class="No-task">
+                    <h2>No spec yet</h2>
+                </div>
+                <div class="Addtask">
+                    <a href="{{url_for('task.tasks')}}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>  <span class="Add">Add Spec </span> </a>
+                </div> <!--end Addtask -->  
+                 {% endif %}
+			</div>
+          </div>
+            {% if no_of_other_tasks > 0 or no_of_business_tasks > 0 or no_of_personal_tasks > 0 %}
+            <div  class="Addtask">
+                <a href="{{url_for('task.tasks')}}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>   </a>
+            </div> <!--end taskAdd --> 
+            {% endif %}
+        </div>  
+   </div>
+        
+{% endblock content %} 
