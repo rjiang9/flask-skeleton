@@ -1,5 +1,6 @@
 #db sql
 recipe/db.sqlite
+*.db
 
 # Python
 *.py[cod]

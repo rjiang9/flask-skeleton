@@ -9,7 +9,7 @@
     <li><a class=" {% if request.url_rule.endpoint == 'task.tasks' %} active {% endif %}" href="{{url_for('task.tasks')}}"><i class="fa fa-tasks"></i>Specs</a></li>
     <li><a class=" {% if request.url_rule.endpoint == 'category.categories' %} active {% endif %}" href="{{url_for('category.categories')}}"><i class="fa fa-tasks"></i>Categories</a></li>
     <li><a class=" {% if request.url_rule.endpoint == 'selector.selectors' %} active {% endif %}" href="{{url_for('selector.selectors')}}"><i class="fa fa-tasks"></i>Selectors</a></li>
-    <li><a class=" {% if request.url_rule.endpoint == 'category.categories' %} active {% endif %}" href="{{url_for('category.categories')}}"><i class="fa fa-tasks"></i>Assertions</a></li>
+    <li><a class=" {% if request.url_rule.endpoint == 'assertion.assertions' %} active {% endif %}" href="{{url_for('assertion.assertions')}}"><i class="fa fa-tasks"></i>Assertions</a></li>
     <li><a href="{{url_for('auth.logout')}}"><i class="fa fa-sign-out"></i>Logout</a></li>
   </ul> 
   <div class="social_media">
