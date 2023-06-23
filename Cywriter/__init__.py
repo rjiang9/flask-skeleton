@@ -41,4 +41,4 @@ app.register_blueprint(it_blueprint)
 
 
 # from Todolist import routes
-from SpecList import routes
+from Cywriter import routes

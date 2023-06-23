@@ -1,4 +1,4 @@
-from SpecList import db
+from Cywriter import db
 from datetime import datetime
 
 class Spec(db.Model):

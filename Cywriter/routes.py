@@ -1,6 +1,6 @@
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_required
-from SpecList import app, db
+from Cywriter import app, db
 from .models import Spec
 
 @app.route('/')
