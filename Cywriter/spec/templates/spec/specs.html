@@ -133,10 +133,10 @@
                 {% for spec in spec %} 
                 <li class="currentSpecItem">
                   <label for="{{ spec.id }}"><span class="complete-">{{ spec.name }}</span></label>
-                  <a href="{{ url_for('step.add_step', id=spec.id) }}"><i class="fa fa-plus icon" aria-hidden="true"></i></a>
-                  <a href="{{ url_for('task.update_spec', id=spec.id) }}"><i class="fa fa-pencil icon" aria-hidden="true"></i></a>
-                  <a href="{{ url_for('task.delete_spec', id=spec.id) }}" ><i class="fa fa-trash-o icon" aria-hidden="true"></i></a> 
-                  <a href="{{ url_for('task.generate_spec', id=spec.id) }}"><i class="fa fa-file-text-o icon" aria-hidden="true"></i></a> 
+                  <a href="{{ url_for('step.steps', id=spec.id) }}"><i class="fa fa-plus icon" aria-hidden="true"></i></a>
+                  <a href="{{ url_for('spec.update_spec', id=spec.id) }}"><i class="fa fa-pencil icon" aria-hidden="true"></i></a>
+                  <a href="{{ url_for('spec.delete_spec', id=spec.id) }}" ><i class="fa fa-trash-o icon" aria-hidden="true"></i></a> 
+                  <a href="{{ url_for('spec.generate_spec', id=spec.id) }}"><i class="fa fa-file-text-o icon" aria-hidden="true"></i></a> 
                 </li>     
                 {% endfor %}
               </ul> <!--end All-Tasks-List -->

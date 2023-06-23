@@ -24,8 +24,8 @@ app.register_blueprint(auth_blueprint)
 from .home import home as home_blueprint
 app.register_blueprint(home_blueprint)
 
-from .task import task as task_blueprint
-app.register_blueprint(task_blueprint)
+from .spec import spec as spec_bp
+app.register_blueprint(spec_bp)
 
 from .category import category as category_bp
 app.register_blueprint(category_bp)

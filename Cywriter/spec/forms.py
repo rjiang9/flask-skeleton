@@ -8,7 +8,7 @@ from wtforms.validators import (DataRequired, InputRequired,
                                 Optional, URL)
 from ..category.models import Category
 
-class TaskForm(FlaskForm):
+class SpecForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired(), Length(min=2, max=50)])
     baseurl = StringField('BaseUrl', validators=[DataRequired(), URL()])
     category= SelectField('Type', coerce=int, validators=[DataRequired()])

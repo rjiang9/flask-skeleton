@@ -8,7 +8,7 @@ from datetime import datetime
 
 @step.route('/create-step', methods=['GET', 'POST'])
 @login_required
-def Steps():
+def steps():
     check = None
     user = current_user
     step = Step.query.all()

@@ -3,31 +3,31 @@ from flask_login import login_required, current_user
 #from .models import Category
 from ..category.models import Category
 from ..models import Spec
-from . import task
-from .forms import TaskForm
+from . import spec
+from .forms import SpecForm
 from .. import db
 from datetime import datetime
 
 
-@task.route('/delete-spec/<int:id>', methods=['GET', 'POST'])
+@spec.route('/delete-spec/<int:id>', methods=['GET', 'POST'])
 @login_required
 def delete_spec(id):
     pass
 
-@task.route('/generate-spec/<int:id>', methods=['GET', 'POST'])
+@spec.route('/generate-spec/<int:id>', methods=['GET', 'POST'])
 @login_required
 def generate_spec(id):
     pass
 
 
-@task.route('/update-spec/<int:id>', methods=['GET', 'POST'])
+@spec.route('/update-spec/<int:id>', methods=['GET', 'POST'])
 @login_required
 def update_spec(id):
     check= None
     user = current_user
     spec_obj = Spec.query.get(id)
 
-    form= TaskForm(obj=spec_obj)
+    form= SpecForm(obj=spec_obj)
     form.category.choices =[(category.id, category.name) for category in Category.query.all()]
     spec= Spec.query.all()
 
@@ -35,14 +35,14 @@ def update_spec(id):
         form.populated_obj(spec_obj)
         db.session.commit()
         flash('Changes are saved')
-        return redirect(url_for('task.tasks'))
+        return redirect(url_for('spec.spec'))
 
-    return render_template('task/tasks.html', title='Edit Spec', form=form, spec=spec, check=check)
+    return render_template('spec/spec.html', title='Edit Spec', form=form, spec=spec, check=check)
 
 
-@task.route('/create-spec', methods=['GET', 'POST'])
+@spec.route('/create-spec', methods=['GET', 'POST'])
 @login_required
-def tasks():
+def specs():
     check= None
     user = current_user
 
@@ -59,20 +59,20 @@ def tasks():
         return redirect(url_for('category.categories', check="Please add type"))
 
 
-    form= TaskForm()
+    form= SpecForm()
     form.category.choices =[(category.id, category.name) for category in Category.query.all()]
 
     # loginrequired 
     if request.method == "POST":
-        if request.form.get('taskDelete') is not None:
-            deleteTask = request.form.get('checkedbox')
-            if deleteTask is not None:
-                spec = Spec.query.filter_by(id=int(deleteTask)).one()
+        if request.form.get('specDelete') is not None:
+            deleteSpec = request.form.get('checkedbox')
+            if deleteSpec is not None:
+                spec = Spec.query.filter_by(id=int(deleteSpec)).one()
                 db.session.delete(spec)
                 db.session.commit()
-                return redirect(url_for('task.tasks'))
+                return redirect(url_for('spec.specs'))
             else:
-                check = 'Please check-box of task to be deleted'
+                check = 'Please check-box of spec to be deleted'
 
         elif form.validate_on_submit():
             selected= form.category.data
@@ -101,6 +101,6 @@ def tasks():
             db.session.add(spec)
             db.session.commit()
             flash('New spec is added successfully')
-            return redirect(url_for('task.tasks'))
+            return redirect(url_for('spec.specs'))
 
-    return render_template('task/tasks.html', title='Create Spec', form=form, spec=spec, check=check)
+    return render_template('spec/specs.html', title='Create Spec', form=form, spec=spec, check=check)
