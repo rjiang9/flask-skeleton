@@ -30,14 +30,14 @@ app.register_blueprint(task_blueprint)
 from .category import category as category_bp
 app.register_blueprint(category_bp)
 
-from .selector import selector as selector_blueprint
-app.register_blueprint(selector_blueprint)
+from .selector import selector as selector_bp
+app.register_blueprint(selector_bp)
 
-from .assertion import assertion as assertion_blueprint
-app.register_blueprint(assertion_blueprint)
+from .assertion import assertion as assertion_bp
+app.register_blueprint(assertion_bp)
 
-from .it import it as it_blueprint
-app.register_blueprint(it_blueprint)
+from .step import step as step_bp
+app.register_blueprint(step_bp)
 
 
 # from Todolist import routes

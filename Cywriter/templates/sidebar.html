@@ -7,7 +7,7 @@
   <ul>
     <li><a class=" {% if request.url_rule.endpoint == 'home.homepage' %} active {% endif %}" href="{{url_for('home.homepage')}}"><i class="fa fa-home"></i>Home</a></li>
     <li><a class=" {% if request.url_rule.endpoint == 'task.tasks' %} active {% endif %}" href="{{url_for('task.tasks')}}"><i class="fa fa-tasks"></i>Specs</a></li>
-    <li><a class=" {% if request.url_rule.endpoint == 'it.its' %} active {% endif %}" href="{{url_for('it.its')}}"><i class="fa fa-tasks"></i>Steps</a></li>
+    <li><a class=" {% if request.url_rule.endpoint == 'step.steps' %} active {% endif %}" href="{{url_for('step.Steps')}}"><i class="fa fa-tasks"></i>Steps</a></li>
     <li><a class=" {% if request.url_rule.endpoint == 'category.categories' %} active {% endif %}" href="{{url_for('category.categories')}}"><i class="fa fa-tasks"></i>Types</a></li>
     <li><a class=" {% if request.url_rule.endpoint == 'selector.selectors' %} active {% endif %}" href="{{url_for('selector.selectors')}}"><i class="fa fa-tasks"></i>Selectors</a></li>
     <li><a class=" {% if request.url_rule.endpoint == 'assertion.assertions' %} active {% endif %}" href="{{url_for('assertion.assertions')}}"><i class="fa fa-tasks"></i>Assertions</a></li>
