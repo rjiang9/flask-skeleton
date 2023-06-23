@@ -13,11 +13,6 @@ def selectors():
     user = current_user
     selector = Selector.query.all()
 
-    print('hello')
-    print(selector)
-
-
-
     form = SelectorForm()
 
     if request.method == "POST":

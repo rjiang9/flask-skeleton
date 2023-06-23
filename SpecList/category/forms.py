@@ -5,5 +5,5 @@ from .models import Category
 
 class CategoryForm(FlaskForm):
     name = StringField('Name', validators=[DataRequired()])
-    submit = SubmitField('Add Catory')
+    submit = SubmitField('Add Type')
 

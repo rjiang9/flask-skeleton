@@ -7,7 +7,7 @@
             <div class="content">
                     <div class="welcome">
                         <button id="openbutton" class="openbtn" >&#9776;</button>
-                        <span class="welcome-text">Manage the Selectors</span> 
+                        <span class="welcome-text">Manage Spec Steps</span> 
                     </div>
 
     <form action="" method="post" novalidate>
@@ -35,23 +35,21 @@
 
       <form action="" method="post">
         {{ form.hidden_tag() }} <!-- csrf token for security -->
-
         <div class="tabs effect-1">
         <!-- tab-content -->
-        <div>
-            <section>
+        <div class="tab-content">
+            <section id="tab-item-1">
                 <ul class="taskList">        
-                    {% for selector in selector %} 
+                    {% for it in it %} 
                     <li class="currentTaskItem">
-                        <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ selector.id }}" value="{{ selector.id }}" >
-                        <label for="{{ selector.id }}"><span class="complete-">{{ selector.name }}</span></label>
-                        <button class="taskDelete " name="selectorDelete" formnovalidate="" type="submit" ><i class="fa fa-trash-o icon"></i></button>
+                        <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ it.id }}" value="{{ it.id }}" >
+                        <label for="{{ it.id }}"><span class="complete-">{{ it.name }}</span></label>
+                        <button class="taskDelete " name="itDelete" formnovalidate="" type="submit" ><i class="fa fa-trash-o icon"></i></button>
                     </li>     
                     {% endfor %}
-                </ul> <!--end All-categoriess-List -->
+                </ul> <!--end All-its-List -->
             </section>
           </div><!-- end tab content -->
-
          </div><!-- end tab effect -->
         </form>
     

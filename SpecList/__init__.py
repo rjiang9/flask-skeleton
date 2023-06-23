@@ -6,6 +6,7 @@ from flask_login import LoginManager
 
 app = Flask(__name__)
 app.config.from_object(Config)
+
 app.config['CACHE_TYPE'] = "null" # Ray:Disable cache. Change "null" to "redis" when on production
 
 db = SQLAlchemy(app)
@@ -26,14 +27,17 @@ app.register_blueprint(home_blueprint)
 from .task import task as task_blueprint
 app.register_blueprint(task_blueprint)
 
-from .category import category as category_blueprint
-app.register_blueprint(category_blueprint)
+from .category import category as category_bp
+app.register_blueprint(category_bp)
 
 from .selector import selector as selector_blueprint
 app.register_blueprint(selector_blueprint)
 
 from .assertion import assertion as assertion_blueprint
 app.register_blueprint(assertion_blueprint)
+
+from .it import it as it_blueprint
+app.register_blueprint(it_blueprint)
 
 
 # from Todolist import routes

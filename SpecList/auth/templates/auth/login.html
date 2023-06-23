@@ -4,8 +4,8 @@
 
 
 <a class="brand-logo" href="{{ url_for('index') }}">
-    <img class="logo" src="{{ url_for('static', filename='Logo.svg') }}">
-    <div class="brand-logo-name"><strong> ToDo </strong> </div>
+  <img class="logo" src="{{ url_for('static', filename='Logo.svg') }}">
+  <img class="logo" src="{{ url_for('static', filename='favico.ico') }}">
 </a>
 
 <!-- Display login error message-->
@@ -20,6 +20,7 @@
         {{ form.hidden_tag() }}
         <div class="Login-Header">
             <h4 class="mb-5">Login</h4>
+    
         </div>
         <p>
             {{ form.email.label }}<br>

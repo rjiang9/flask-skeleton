@@ -346,16 +346,6 @@ ul {
     text-align: center;
     margin-bottom: 10px;
 }
-
-.taskEdit {
-    float: right;
-    margin-right: 2px;
-}
-.taskEdit:hover {
-    background: #c0392b;
-    cursor: pointer;
-}
-
 .taskDelete {
     float: right;
     margin-right: 2px;
@@ -931,9 +921,4 @@ form {
 
 .effect-1 > input:checked + span {
 	background: #fff;
-}
-
-label[required]:after {
-    content: " *";
-    color: red;
 }

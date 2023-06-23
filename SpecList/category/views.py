@@ -13,10 +13,9 @@ def categories():
     user = current_user
     category = Category.query.all()
 
-    print('hello')
+    print('h1')
     print(category)
-
-
+    print('hello')
 
     form = CategoryForm()
 
@@ -30,7 +29,6 @@ def categories():
                 return redirect(url_for('category.categories'))
             else:
                 check = 'Please check-box of category to be deleted'
-
         elif form.validate_on_submit():
             category = Category(name=form.name.data)
             db.session.add(category)

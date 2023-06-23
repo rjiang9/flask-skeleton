@@ -6,7 +6,7 @@ from .models import Spec
 @app.route('/')
 def index():
     spec= Spec.query.all()
-    return render_template('index.html', title='Spec Application')
+    return render_template('index.html', title='Cywriter | Spec Management System')
 
 
 

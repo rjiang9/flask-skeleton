@@ -3,89 +3,151 @@
 {% block content %}
 
 <div django-app="TaskManager" class="task_content categories" >    
-    <div class="">
-            <div class="content">
-                    <div class="welcome">
-                        <button id="openbutton" class="openbtn" >&#9776;</button>
-                        <span class="welcome-text">Manage Your Spec List</span> 
-                    </div>
+  <div class="">
+    <div class="content">
+      <div class="welcome">
+        <button id="openbutton" class="openbtn" >&#9776;</button>
+        <span class="welcome-text">Manage Specs </span> 
+      </div>
 
-    <form action="" method="post" novalidate>
+      <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
         <div class="inputContainer Task">
-            {{ form.title.label }}<br>
-            {{ form.title(size=20) }}
-            {% for error in form.title.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
+          {{ form.name.label(required=form.name.flags.required) }}<br>
+          {{ form.name(size=20) }}
+          {% for error in form.name.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </div>
+        <div class="inputContainer Task">
+          {{ form.baseurl.label(required=form.baseurl.flags.required) }}<br>
+          {{ form.baseurl(placeholder="http://www.example.com") }}
+          {% for error in form.baseurl.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
         </div>
         <div class="inputContainer choice ">
-            {{ form.category.label}}<br>
-            {{ form.category}}
-            {% for error in form.category.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
+          {{ form.category.label(required=form.category.flags.required)}}<br>
+          {{ form.category}}
+          {% for error in form.category.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
         </div>
-        <div class="inputContainer  date ">
-            {{ form.date.label }}<br>
-            {{ form.date }}
-            {% for error in form.date.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
+        <div class="inputContainer Task">
+          {{ form.funtionname.label(required=form.funtionname.flags.required) }}<br>
+          {{ form.funtionname(size=20) }}
+          {% for error in form.funtionname.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
         </div>
-        <div class="inputContainer  time">
-            {{ form.time.label }}<br>
-            {{ form.time }}
-            {% for error in form.title.errors %}
-            <span style="color: red;">[{{ error }}]</span>
-            {% endfor %}
+        <div class="inputContainer Task">
+          {{ form.beforeaction.label }}<br>
+          {{ form.beforeaction(size=20) }}
+          {% for error in form.beforeaction.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </div>
+        <div class="inputContainer Task">
+          {{ form.postaction.label }}<br>
+          {{ form.postaction(size=20) }}
+          {% for error in form.postaction.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </div>
+
+        <div class="inputContainer Task">
+          {{ form.loginrequired.label }}<br>
+          {{ form.loginrequired() }}
+          {% for error in form.loginrequired.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </div>
+
+        <div class="inputContainer Task">
+          {{ form.acct1.label(required=form.acct1.flags.required) }}<br>
+          {{ form.acct1(size=20) }}
+          {% for error in form.acct1.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </div>
+        <div class="inputContainer Task">
+          {{ form.acct2.label }}<br>
+          {{ form.acct2(size=20) }}
+          {% for error in form.acct2.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </div>
+        <div class="inputContainer Task">
+          {{ form.acct3.label }}<br>
+          {{ form.acct3(size=20) }}
+          {% for error in form.acct3.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </div>
+        <div class="inputContainer Task">
+          {{ form.email1.label }}<br>
+          {{ form.email1(size=20) }}
+          {% for error in form.email1.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </div>
+        <div class="inputContainer Task">
+          {{ form.email2.label }}<br>
+          {{ form.email2(size=20) }}
+          {% for error in form.email2.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </div>
+        <div class="inputContainer Task">
+          {{ form.email3.label }}<br>
+          {{ form.email3(size=20) }}
+          {% for error in form.email3.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
+        </div>
+        <div class="inputContainer Task">
+          {{ form.prerequisites.label }}<br>
+          {{ form.prerequisites(size=20) }}
+          {% for error in form.prerequisites.errors %}
+          <span style="color: red;">[{{ error }}]</span>
+          {% endfor %}
         </div>
         <div class="buttons">   
-            {{ form.submit(class="taskAdd btn") }}
+          {{ form.submit(class="taskAdd btn") }}
         </div> 
-    </form>
+      </form>
       <!-- Task Delete Error alert -->
       {% if check %}
       <div class="alert alert-warning" role="alert">
-          <span class="closebtns" onclick="this.parentElement.style.display='none';">&times;</span>
-          {{check}}
+        <span class="closebtns" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{check}}
       </div>
       {% endif %}
       <!-- End Task Delete error alert -->
 
-      <form action="" method="post">
-        {{ form.hidden_tag() }} <!-- csrf token for security -->
-
-        <div class="tabs effect-1">
-
-             <!-- tab-content -->
-        <div class="tab-content">
+        <div>
+          <!-- tab-content -->
+          <div>
             <section id="tab-item-1">
-                <ul class="taskList">        
-                    {% for spec in spec %} 
-                    <li class="currentTaskItem">
-                        <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ spec.id }}" value="{{ spec.id }}" >
-                        <label for="{{ spec.id }}"><span class="complete-">{{ spec.title }}</span></label>
-                        <span class="taskDone" >at</span>
-                        <strong class="taskDone"><i class="fa fa-clock-o"></i> {{ spec.time }}</strong>
-                        <span class="taskDone" >on</span>
-                        <strong class="taskDatee taskDone"><i class="fa fa-calendar"></i> {{ spec.date }}</strong>
-                        <span class="categorypage-{{ spec.category }}">{{ spec.category }}</span>
-                        <button class="taskDelete " name="taskDelete" formnovalidate="" type="submit" ><i class="fa fa-trash-o icon"></i></button>
-                    </li>     
-                    {% endfor %}
-                </ul> <!--end All-Tasks-List -->
+              <ul class="specList">        
+                {% for spec in spec %} 
+                <li class="currentSpecItem">
+                  <label for="{{ spec.id }}"><span class="complete-">{{ spec.name }}</span></label>
+                  <a href="{{ url_for('task.update_spec', id=spec.id) }}"><i class="fa fa-pencil icon" aria-hidden="true"></i></a>
+                  <a href="{{ url_for('task.delete_spec', id=spec.id) }}" ><i class="fa fa-trash-o icon" aria-hidden="true"></i></a> 
+                  <a href="{{ url_for('task.generate_spec', id=spec.id) }}"><i class="fa fa-file-text-o icon" aria-hidden="true"></i></a> 
+                </li>     
+                {% endfor %}
+              </ul> <!--end All-Tasks-List -->
             </section>
           </div><!-- end tab content -->
+        </div><!-- end tab effect -->
 
-         </div><!-- end tab effect -->
-        </form>
-    
-        </div><!-- end content -->
+    </div><!-- end content -->
 
-    </div><!-- container -->
-    <div class="done">
+  </div><!-- container -->
+  <div class="done">
     <a href="{{url_for('home.homepage')}}" class="btn btn-primary mt-3"> <i class="fa fa-home"></i>Back to Home </a>
-    </div>
+  </div>
 </div>
 {% endblock %}
