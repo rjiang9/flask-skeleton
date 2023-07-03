@@ -13,9 +13,6 @@ def steps():
     user = current_user
     steps = Step.query.all()
 
-    print('hello')
-    print(step)
-
     form = StepForm()
 
     if request.method == "POST":
