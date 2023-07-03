@@ -8,7 +8,7 @@
                  <span class="welcome-text"> Welcome <span class="user">{{current_user.username }}</span> <span class="exclamation-mark">!</span> <i class="fa fa-smile-o" aria-hidden="true"></i></span> 
                 {% if no_of_other_tasks > 0 or no_of_business_tasks > 0 or no_of_personal_tasks > 0 %}
                     <div  class="taskAdd">
-                            <a href="{{url_for('spec.specs')}}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>  <span class="Add">Add</span> <span class="or">or</span> <i class="fa fa-trash-o icon"></i> <span class="Delete">Delete Spec(s)</span> </a>
+                            <a href="{{url_for('spec_bp.specs')}}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>  <span class="Add">Add</span> <span class="or">or</span> <i class="fa fa-trash-o icon"></i> <span class="Delete">Delete Spec(s)</span> </a>
                     </div> <!--end taskAdd -->     
                 {% endif %} 
         </div>
@@ -20,7 +20,7 @@
 
 				<section id="tab-item-1">
                     <ul class="taskList">        
-                        {% for spec in spec %} 
+                        {% for spec in specs %} 
                                 <li class="currentTaskItem">
                                     <i class="fa fa-tasks" aria-hidden="true"></i>
                                     <span  id=TaskDone class="complete- taskDone">{{ spec.title }}</span>
@@ -39,14 +39,14 @@
                     <h2>No spec yet</h2>
                 </div>
                 <div class="Addtask">
-                    <a href="{{url_for('spec.specs')}}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>  <span class="Add">Add Spec</span> </a>
+                    <a href="{{url_for('spec_bp.specs')}}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>  <span class="Add">Add Spec</span> </a>
                 </div> <!--end Addtask -->  
                  {% endif %}
 			</div>
           </div>
             {% if no_of_other_tasks > 0 or no_of_business_tasks > 0 or no_of_personal_tasks > 0 %}
             <div  class="Addtask">
-                <a href="{{url_for('spec.specs')}}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>   </a>
+                <a href="{{url_for('spec_bp.specs')}}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>   </a>
             </div> <!--end taskAdd --> 
             {% endif %}
         </div>  

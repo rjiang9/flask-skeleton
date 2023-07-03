@@ -11,8 +11,8 @@
         
 
       {% if request.url_rule.endpoint != 'index' %}   
-        {% if request.url_rule.endpoint != 'auth.login' %} 
-            {% if request.url_rule.endpoint != 'auth.register' %} 
+        {% if request.url_rule.endpoint != 'auth_bp.login' %} 
+            {% if request.url_rule.endpoint != 'auth_bp.register' %} 
                <script src="{{ url_for('static', filename='sidebar.js') }}" defer></script>
             {% endif %}
         {% endif %}
@@ -24,10 +24,11 @@
       {% endif %}
     </head>
     <body>
+
         <!-- This prevents the WRAPPER class from activating on the main, sign in and register pages -->
         {% if request.url_rule.endpoint != 'index' %}   
-            {% if request.url_rule.endpoint != 'auth.login' %} 
-                {% if request.url_rule.endpoint != 'auth.register' %} 
+            {% if request.url_rule.endpoint != 'auth_bp.login' %} 
+                {% if request.url_rule.endpoint != 'auth_bp.register' %} 
         <div class="wrapper">  
                 {% endif %}
             {% endif %}
@@ -35,8 +36,8 @@
                 
         <!-- This prevents the sidebar from showing up on the main, sign in and register pages -->
         {% if request.url_rule.endpoint != 'index' %}   
-            {% if request.url_rule.endpoint != 'auth.login' %} 
-                {% if request.url_rule.endpoint != 'auth.register' %} 
+            {% if request.url_rule.endpoint != 'auth_bp.login' %} 
+                {% if request.url_rule.endpoint != 'auth_bp.register' %} 
                             
                     {% include 'sidebar.html' %}
 

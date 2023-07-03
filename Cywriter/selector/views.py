@@ -2,16 +2,16 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_required, current_user
 from .models import Selector
 from .forms import SelectorForm
-from . import selector
+from . import selector_bp
 from .. import db
 from datetime import datetime
 
-@selector.route('/create-selector', methods=['GET', 'POST'])
+@selector_bp.route('/create-selector', methods=['GET', 'POST'])
 @login_required
 def selectors():
     check = None
     user = current_user
-    selector = Selector.query.all()
+    selectors = Selector.query.all()
 
     form = SelectorForm()
 
@@ -22,7 +22,7 @@ def selectors():
                 selector = Selector.query.filter_by(id=int(deleteSelector)).one()
                 db.session.delete(selector)
                 db.session.commit()
-                return redirect(url_for('selector.selectors'))
+                return redirect(url_for('selector_bp.selectors'))
             else:
                 check = 'Please check-box of selector to be deleted'
 
@@ -31,6 +31,6 @@ def selectors():
             db.session.add(selector)
             db.session.commit()
             flash('Congratulations, you just added a new selector')
-            return redirect(url_for('selector.selectors'))
+            return redirect(url_for('selector_bp.selectors'))
 
-    return render_template('selector/selectors.html', title='Create selectors', form=form, selector=selector, check=check)
+    return render_template('selector/selectors.html', title='Create selectors', form=form, selectors=selectors, check=check)

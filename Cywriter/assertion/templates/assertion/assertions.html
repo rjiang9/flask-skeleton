@@ -40,7 +40,7 @@
           <div>
             <section>
               <ul class="taskList">        
-                {% for assertion in assertion %} 
+                {% for assertion in assertions %} 
                 <li class="currentTaskItem">
                   <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ assertion.id }}" value="{{ assertion.id }}" >
                   <label for="{{ assertion.id }}"><span class="complete-">{{ assertion.name }}</span></label>
@@ -53,12 +53,7 @@
 
         </div><!-- end tab effect -->
       </form>
-
     </div><!-- end content -->
-
   </div><!-- container -->
-  <div class="done">
-    <a href="{{url_for('home.homepage')}}" class="btn btn-primary mt-3"> <i class="fa fa-home"></i>Back to Home </a>
-  </div>
 </div>
 {% endblock %}

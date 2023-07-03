@@ -40,7 +40,7 @@
           <div>
             <section>
               <ul class="taskList">        
-                {% for category in category %} 
+                {% for category in categories %} 
                 <li class="currentTaskItem">
                   <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ category.id }}" value="{{ category.id }}" >
                   <label for="{{ category.id }}"><span class="complete-">{{ category.name }}</span></label>
@@ -56,8 +56,5 @@
     </div><!-- end content -->
 
   </div><!-- container -->
-  <div class="done">
-    <a href="{{url_for('home.homepage')}}" class="btn btn-primary mt-3"> <i class="fa fa-home"></i>Back to Home </a>
-  </div>
 </div>
 {% endblock %}

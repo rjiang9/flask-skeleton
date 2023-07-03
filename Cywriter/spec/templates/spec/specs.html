@@ -130,7 +130,7 @@
           <div>
             <section id="tab-item-1">
               <ul class="specList">        
-                {% for spec in spec %} 
+                {% for spec in specs %} 
                 <li class="currentSpecItem">
                   <label for="{{ spec.id }}"><span class="complete-">{{ spec.name }}</span></label>
                   <a href="{{ url_for('step.steps', id=spec.id) }}"><i class="fa fa-plus icon" aria-hidden="true"></i></a>
@@ -145,10 +145,6 @@
         </div><!-- end tab effect -->
 
     </div><!-- end content -->
-
   </div><!-- container -->
-  <div class="done">
-    <a href="{{url_for('home.homepage')}}" class="btn btn-primary mt-3"> <i class="fa fa-home"></i>Back to Home </a>
-  </div>
 </div>
 {% endblock %}

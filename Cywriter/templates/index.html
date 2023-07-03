@@ -6,7 +6,6 @@
 
 {% block content %}
 
-
 <div class="Home">
 
   <a class="brand-logo" href="{{ url_for('index') }}">
@@ -19,7 +18,7 @@
       <div class="brand-logo-name"><strong>CyWriter</strong></div>
       <i class="fa fa-clock-o" aria-hidden="true"></i></h1>
       <h3 class="subtitle">makes it easy to create and organize cypress specs </h3>
-      <a href="{{ url_for('auth.login') }}" class="btn">Let’s get started</a>
+      <a href="{{ url_for('auth_bp.login') }}" class="btn">Let’s get started</a>
   </div>
 </div>
 {% endblock content %}

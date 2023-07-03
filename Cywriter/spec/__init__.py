@@ -1,5 +1,5 @@
 from flask import Blueprint
 
-spec = Blueprint('spec', __name__, template_folder='templates')
+spec_bp = Blueprint('spec_bp', __name__, template_folder='templates')
 
 from . import views

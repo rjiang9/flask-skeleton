@@ -5,13 +5,13 @@
   </div>
   
   <ul>
-    <li><a class=" {% if request.url_rule.endpoint == 'home.homepage' %} active {% endif %}" href="{{url_for('home.homepage')}}"><i class="fa fa-home"></i>Home</a></li>
-    <li><a class=" {% if request.url_rule.endpoint == 'spec.specs' %} active {% endif %}" href="{{url_for('spec.specs')}}"><i class="fa fa-tasks"></i>Specs</a></li>
-    <li><a class=" {% if request.url_rule.endpoint == 'step.steps' %} active {% endif %}" href="{{url_for('step.steps')}}"><i class="fa fa-tasks"></i>Steps</a></li>
-    <li><a class=" {% if request.url_rule.endpoint == 'category.categories' %} active {% endif %}" href="{{url_for('category.categories')}}"><i class="fa fa-tasks"></i>Types</a></li>
-    <li><a class=" {% if request.url_rule.endpoint == 'selector.selectors' %} active {% endif %}" href="{{url_for('selector.selectors')}}"><i class="fa fa-tasks"></i>Selectors</a></li>
-    <li><a class=" {% if request.url_rule.endpoint == 'assertion.assertions' %} active {% endif %}" href="{{url_for('assertion.assertions')}}"><i class="fa fa-tasks"></i>Assertions</a></li>
-    <li><a href="{{url_for('auth.logout')}}"><i class="fa fa-sign-out"></i>Logout</a></li>
+    <li><a class=" {% if request.url_rule.endpoint == 'home.homepage' %} active {% endif %}" href="{{url_for('home_bp.homepage')}}"><i class="fa fa-home"></i>Home</a></li>
+    <li><a class=" {% if request.url_rule.endpoint == 'spec.specs' %} active {% endif %}" href="{{url_for('spec_bp.specs')}}"><i class="fa fa-tasks"></i>Specs</a></li>
+    <li><a class=" {% if request.url_rule.endpoint == 'step.steps' %} active {% endif %}" href="{{url_for('step_bp.steps')}}"><i class="fa fa-tasks"></i>Steps</a></li>
+    <li><a class=" {% if request.url_rule.endpoint == 'category.categories' %} active {% endif %}" href="{{url_for('category_bp.categories')}}"><i class="fa fa-tasks"></i>Types</a></li>
+    <li><a class=" {% if request.url_rule.endpoint == 'selector.selectors' %} active {% endif %}" href="{{url_for('selector_bp.selectors')}}"><i class="fa fa-tasks"></i>Selectors</a></li>
+    <li><a class=" {% if request.url_rule.endpoint == 'assertion.assertions' %} active {% endif %}" href="{{url_for('assertion_bp.assertions')}}"><i class="fa fa-tasks"></i>Assertions</a></li>
+    <li><a href="{{url_for('auth_bp.logout')}}"><i class="fa fa-sign-out"></i>Logout</a></li>
   </ul> 
   <div class="social_media">
     <a href="https://www.linkedin.com/in/faruq-abdulsalam-b2847b160/"><i class="fa fa-linkedin-square"></i></a>

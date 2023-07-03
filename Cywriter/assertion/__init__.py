@@ -1,5 +1,5 @@
 from flask import Blueprint
 
-assertion  = Blueprint('assertion', __name__, template_folder='templates')
+assertion_bp  = Blueprint('assertion_bp', __name__, template_folder='templates')
 
 from . import views

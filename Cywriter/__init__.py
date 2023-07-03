@@ -14,29 +14,29 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 login = LoginManager(app)
-login.login_view = 'auth.login'
+login.login_view = 'auth_bp.login'
 
 # blueprint for auth routes in our app
-from .auth import auth as auth_blueprint
-app.register_blueprint(auth_blueprint)
+from .auth import auth_bp
+app.register_blueprint(auth_bp)
 
 # blueprint for non-auth parts of app
-from .home import home as home_blueprint
-app.register_blueprint(home_blueprint)
+from .home import home_bp
+app.register_blueprint(home_bp)
 
-from .spec import spec as spec_bp
+from .spec import spec_bp
 app.register_blueprint(spec_bp)
 
-from .category import category as category_bp
+from .category import category_bp
 app.register_blueprint(category_bp)
 
-from .selector import selector as selector_bp
+from .selector import selector_bp
 app.register_blueprint(selector_bp)
 
-from .assertion import assertion as assertion_bp
+from .assertion import assertion_bp
 app.register_blueprint(assertion_bp)
 
-from .step import step as step_bp
+from .step import step_bp
 app.register_blueprint(step_bp)
 
 

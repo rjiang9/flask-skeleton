@@ -41,7 +41,7 @@
         <div>
             <section>
                 <ul class="taskList">        
-                    {% for selector in selector %} 
+                    {% for selector in selectors %} 
                     <li class="currentTaskItem">
                         <input type="checkbox" class="taskCheckbox" name="checkedbox" id="{{ selector.id }}" value="{{ selector.id }}" >
                         <label for="{{ selector.id }}"><span class="complete-">{{ selector.name }}</span></label>
@@ -56,10 +56,6 @@
         </form>
     
         </div><!-- end content -->
-
     </div><!-- container -->
-    <div class="done">
-    <a href="{{url_for('home.homepage')}}" class="btn btn-primary mt-3"> <i class="fa fa-home"></i>Back to Home </a>
-    </div>
 </div>
 {% endblock %}

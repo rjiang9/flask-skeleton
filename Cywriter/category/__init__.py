@@ -1,5 +1,5 @@
 from flask import Blueprint
 
-category  = Blueprint('category', __name__, template_folder='templates')
+category_bp  = Blueprint('category_bp', __name__, template_folder='templates')
 
 from . import views

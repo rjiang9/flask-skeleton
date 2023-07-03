@@ -2,16 +2,16 @@ from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_required, current_user
 from .models import Step
 from .forms import StepForm
-from . import step
+from . import step_bp
 from .. import db
 from datetime import datetime
 
-@step.route('/create-step', methods=['GET', 'POST'])
+@step_bp.route('/create-step', methods=['GET', 'POST'])
 @login_required
 def steps():
     check = None
     user = current_user
-    step = Step.query.all()
+    steps = Step.query.all()
 
     print('hello')
     print(step)
@@ -25,7 +25,7 @@ def steps():
                 step = Step.query.filter_by(id=int(deleteStep)).one()
                 db.session.delete(step)
                 db.session.commit()
-                return redirect(url_for('step.steps'))
+                return redirect(url_for('step_bp.steps'))
             else:
                 check = 'Please check-box of step to be deleted'
 
@@ -34,6 +34,6 @@ def steps():
             db.session.add(step)
             db.session.commit()
             flash('Congratulations, you just added a new step')
-            return redirect(url_for('step.steps'))
+            return redirect(url_for('step_bp.steps'))
 
-    return render_template('step/steps.html', title='Create step', form=form, step=step, check=check)
+    return render_template('step/steps.html', title='Create step', form=form, steps=steps, check=check)
