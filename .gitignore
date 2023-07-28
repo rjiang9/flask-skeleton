@@ -1,6 +1,8 @@
 #db sql
+*-OLD
 recipe/db.sqlite
 *.db
+__.*
 
 # Python
 *.py[cod]

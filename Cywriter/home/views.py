@@ -1,13 +1,32 @@
 from flask import render_template
 from flask_login import login_required, current_user
-from ..models import Spec
+from ..spec.models import Spec
 from ..category.models import Category
 from . import home_bp
 from datetime import datetime
 
+
+
+
+
 @home_bp.route('/home')
 @login_required
 def homepage():
+    user = current_user
+    specs= Spec.query.filter_by(author=user)
+    # specs= Spec.query.all()
+    date= datetime.now()
+    now= date.strftime("%Y-%m-%d")
+
+    return render_template('home/home.html',
+                           title='Home Page',
+                            specs=specs)
+
+
+
+"""
+
+def homepageOLD():
     user = current_user
     specs= Spec.query.filter_by(author=user)
     date= datetime.now()
@@ -31,3 +50,4 @@ def homepage():
                             no_of_personal_tasks=no_of_Task_ID_Personal,
                             category_i=category1, category_ii=category2,
                             category_iii=category3, DateNow = now)
+"""

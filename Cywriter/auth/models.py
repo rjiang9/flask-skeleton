@@ -2,7 +2,7 @@ from .. import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from .. import login
 from flask_login import UserMixin
-from ..models import Spec
+from ..spec.models import Spec
 from ..category.models import Category
 
 class User(UserMixin, db.Model):

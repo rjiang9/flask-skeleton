@@ -1,7 +1,7 @@
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_required
 from Cywriter import app, db
-from .models import Spec
+from .spec.models import Spec
 
 @app.route('/')
 def index():

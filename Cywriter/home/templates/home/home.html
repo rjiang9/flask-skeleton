@@ -3,53 +3,64 @@
 {% block content %}
 
     <div class="main_content">
-        <div class="welcome">
-                <button id="openbutton" class="openbtn" >&#9776;</button>
-                 <span class="welcome-text"> Welcome <span class="user">{{current_user.username }}</span> <span class="exclamation-mark">!</span> <i class="fa fa-smile-o" aria-hidden="true"></i></span> 
-                {% if no_of_other_tasks > 0 or no_of_business_tasks > 0 or no_of_personal_tasks > 0 %}
-                    <div  class="taskAdd">
-                            <a href="{{url_for('spec_bp.specs')}}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>  <span class="Add">Add</span> <span class="or">or</span> <i class="fa fa-trash-o icon"></i> <span class="Delete">Delete Spec(s)</span> </a>
-                    </div> <!--end taskAdd -->     
-                {% endif %} 
-        </div>
-        <div class="task-card">
-            <p class="heading">My Specs List</p> 
-          <div class="tabs effect-1">
-            <!-- tab-content -->
-			<div class="tab-content">
+      <div class="welcome">
+        <button id="openbutton" class="openbtn" >&#9776;</button>
+        <span class="welcome-text">Welcome <span class="user">{{current_user.username }}</span> <span class="exclamation-mark">!</span> <i class="fa fa-smile-o" aria-hidden="true"></i></span> 
+      </div>
 
-				<section id="tab-item-1">
-                    <ul class="taskList">        
-                        {% for spec in specs %} 
-                                <li class="currentTaskItem">
-                                    <i class="fa fa-tasks" aria-hidden="true"></i>
-                                    <span  id=TaskDone class="complete- taskDone">{{ spec.title }}</span>
-                                    <span class="taskDone" >at</span>
-                                    <strong class="taskDone"><i class="fa fa-clock-o"></i> {{ spec.time }}</strong>
-                                    <span class="taskDone" >on</span>
-                                    <strong class=" taskDatee taskDone"><i class="fa fa-calendar"></i> {{ spec.date }}</strong>
-                                    <span class="categoryy-{{ spec.category }}">{{ spec.category }}</span>
-                                </li>
-                        {% endfor %}
-                    </ul> <!--end All-Tasks-List -->
-				</section>
+      <div class="task-card">
+        <p class="heading">My Specs List</p> 
+        <div>
+          <!-- tab-content -->
+          <div>
+            <section id="tab-item-1">
+              <ul class="taskList">        
+                <li class="currentTaskItem">
+                  <span  id=TaskDone class="complete- taskDone">
+                    Name/Author
+                  </span>
+                  <span class="categoryy-other taskDone" >
+                    Edit
+                  </span>
+                  <span class="categoryy-other taskDone" >
+                    Steps
+                  </span>
+                  <span class="categoryy-other taskDone">
+                    Delete
+                  </span>
+                </li>
+              </ul> <!--end All-Tasks-List -->
+              <ul class="taskList">        
+                {% for spec in specs %} 
+                <li class="currentTaskItem">
+                  <i class="fa fa-tasks" aria-hidden="true"></i>
+                  <span  id=TaskDone class="complete- taskDone">{{ spec.name }} {{ spec.user }}</span>
+                  <span class="categoryy-{{ spec.category }} taskDone" >
+                    <a href="{{ url_for('spec_bp.update_spec', spid=spec.id) }}"><i class="fa fa-pencil icon" aria-hidden="true"></i></a>
+                  </span>
+                  <span class="categoryy-{{ spec.category }} taskDone" >
+                    <a href="{{ url_for('step_bp.add_step', spid=spec.id) }}"><i class="fa-solid fa-pencil"></i></a>
+                  </span>
+                  <span class="categoryy-{{ spec.category }} taskDone">
+                    <a href="{{ url_for('spec_bp.delete_spec', spid=spec.id) }}" ><i class="fa fa-trash-o icon" aria-hidden="true"></i></a>
+                  </span>
+                </li>
+                {% endfor %}
+              </ul> <!--end All-Tasks-List -->
+            </section>
 
-                {% if no_of_other_tasks == 0 and no_of_business_tasks == 0 and no_of_personal_tasks == 0 %}
-                <div class="No-task">
-                    <h2>No spec yet</h2>
-                </div>
-                <div class="Addtask">
-                    <a href="{{url_for('spec_bp.specs')}}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>  <span class="Add">Add Spec</span> </a>
-                </div> <!--end Addtask -->  
-                 {% endif %}
-			</div>
-          </div>
-            {% if no_of_other_tasks > 0 or no_of_business_tasks > 0 or no_of_personal_tasks > 0 %}
-            <div  class="Addtask">
-                <a href="{{url_for('spec_bp.specs')}}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>   </a>
-            </div> <!--end taskAdd --> 
+            {% if not specs.count() %}
+            <div class="No-task">
+              <h2>No spec yet</h2>
+            </div>
+            <div class="Addtask">
+              <a href="{{url_for('spec_bp.create-spec')}}" class="btn btn-primary"> <i class="fa fa-plus icon"></i>  <span class="Add">Add Specs</span> </a>
+            </div> <!--end Addtask -->  
             {% endif %}
-        </div>  
-   </div>
+
+          </div>
+        </div>
+      </div>  
+    </div>
         
 {% endblock content %} 

@@ -1,6 +1,6 @@
 from Cywriter import app, db
 from Cywriter.auth.models import User
-from Cywriter.models import Spec
+from Cywriter.spec.models import Spec
 from Cywriter.category.models import Category
 from Cywriter.selector.models import Selector
 from Cywriter.assertion.models import Assertion
